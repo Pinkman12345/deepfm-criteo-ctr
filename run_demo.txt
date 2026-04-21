@@ -1,0 +1,35 @@
+项目快速运行说明
+
+1. 创建并激活虚拟环境
+   Windows PowerShell:
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+
+2. 安装依赖
+   pip install -r requirements.txt
+
+3. 数据预处理
+   python src/preprocess.py
+
+4. 检查预处理结果
+   python src/check_processed_data.py
+
+5. 训练 LR baseline
+   python src/train_lr.py
+
+6. 测试 Dataset
+   python src/test_dataset.py
+
+7. 测试 DeepFM 模型结构
+   python src/test_model.py
+
+8. 训练 DeepFM
+   python src/train_deepfm.py
+
+9. 生成结果对比表
+   python src/make_comparison.py
+
+核心结果文件：
+- outputs/results/lr_metrics.json
+- outputs/results/deepfm_metrics.json
+- outputs/results/comparison.csv

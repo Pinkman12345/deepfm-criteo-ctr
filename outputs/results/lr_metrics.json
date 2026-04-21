@@ -1,0 +1,7 @@
+{
+    "model": "LogisticRegression",
+    "valid_auc": 0.5170800165974823,
+    "valid_logloss": 0.5696845028572909,
+    "test_auc": 0.5138738965398076,
+    "test_logloss": 0.5703049818337226
+}

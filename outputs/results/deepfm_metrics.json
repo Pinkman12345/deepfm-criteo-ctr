@@ -1,0 +1,9 @@
+{
+    "model": "DeepFM",
+    "batch_size": 1024,
+    "epochs": 3,
+    "learning_rate": 0.001,
+    "best_valid_auc": 0.7790635452270926,
+    "test_auc": 0.7823574549995584,
+    "test_logloss": 0.4649397093389935
+}
