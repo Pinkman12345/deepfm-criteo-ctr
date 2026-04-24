@@ -1,8 +1,8 @@
-import os
 import json
 import pandas as pd
 
 LR_RESULT_PATH = "outputs/results/lr_metrics.json"
+XGB_RESULT_PATH = "outputs/results/xgb_metrics.json"
 DEEPFM_RESULT_PATH = "outputs/results/deepfm_metrics.json"
 OUTPUT_PATH = "outputs/results/comparison.csv"
 
@@ -23,6 +23,16 @@ def main():
         "valid_logloss": lr_result.get("valid_logloss"),
         "test_auc": lr_result.get("test_auc"),
         "test_logloss": lr_result.get("test_logloss")
+    })
+
+    # XGBoost
+    xgb_result = load_json(XGB_RESULT_PATH)
+    records.append({
+        "model": xgb_result.get("model", "XGBoost"),
+        "valid_auc": xgb_result.get("valid_auc"),
+        "valid_logloss": xgb_result.get("valid_logloss"),
+        "test_auc": xgb_result.get("test_auc"),
+        "test_logloss": xgb_result.get("test_logloss")
     })
 
     # DeepFM

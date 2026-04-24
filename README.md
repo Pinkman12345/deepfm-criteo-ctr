@@ -105,14 +105,19 @@ python src/test_model.py
 python src/train_deepfm.py
 6.7 生成模型结果对比表
 python src/make_comparison.py
+
+
 7. 实验结果
 
 当前实验结果如下：
+| Model | Valid AUC | Valid LogLoss | Test AUC | Test LogLoss |
+|------|----------:|--------------:|---------:|-------------:|
+| Logistic Regression | 0.5171 | 0.5697 | 0.5139 | 0.5703 |
+| XGBoost | 0.7682 | 0.4750 | 0.7715 | 0.4726 |
+| DeepFM | 0.7791 | - | 0.7824 | 0.4649 |
 
-Model	Valid AUC	Test AUC	Test LogLoss
-Logistic Regression	0.5171	0.5139	0.5703
-DeepFM	0.7791	0.7824	0.4649
-结果分析
-Logistic Regression 作为线性 baseline，对匿名化稀疏类别特征的表达能力有限，整体效果较弱。
-DeepFM 同时结合了 FM 的低阶交互建模能力和 DNN 的高阶特征学习能力，在 CTR 预测任务上取得了显著更好的效果。
-在当前实验设置下，DeepFM 的测试集 AUC 相较 LR 提升明显，验证了深度排序模型在 CTR 场景中的优势。
+### 结果分析
+- Logistic Regression 作为线性 baseline，对匿名化稀疏类别特征和复杂特征交互的表达能力有限，因此整体效果较弱。
+- XGBoost 作为树模型 baseline，在表格数据上表现较强，说明其对非线性关系和特征分裂具备较好的建模能力。
+- DeepFM 最终取得了最佳效果，说明在 CTR 预测场景下，结合 FM 的低阶交互建模能力与 DNN 的高阶特征学习能力，可以更有效地挖掘稀疏高维特征之间的关系。
+- 从实验结果来看，DeepFM 相比 LR 提升明显，相比 XGBoost 也保持了一定优势，验证了其在推荐排序任务中的应用价值。
